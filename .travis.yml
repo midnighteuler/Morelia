@@ -1,14 +1,15 @@
 # Config file for automatic testing at travis-ci.org
 # This file will be regenerated if you run travis_pypi_setup.py
 
+dist: xenial
 language: python
 python:
     - "2.7"
     - "3.4"
     - "3.5"
     - "3.6"
-    # - "3.7-dev"
-    - "pypy"
+    - "3.7"
+    - "pypy2.7-6.0"
     - "pypy3.5"
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
@@ -22,12 +23,12 @@ after_success: coveralls
 # After you create the Github repo and add it to Travis, run the
 # travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: dryobates
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    python: "3.5"
-    repo: kidosoft/morelia
-    tags: true
+    provider: pypi
+    distributions: sdist bdist_wheel
+    user: dryobates
+    password:
+        secure: PLEASE_REPLACE_ME
+    on:
+        python: "3.5"
+        repo: kidosoft/morelia
+        tags: true
